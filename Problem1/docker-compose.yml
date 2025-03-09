@@ -1,0 +1,20 @@
+services:
+  postgres:
+    build: /Users/aayus/asg4/Problem1
+    container_name: my_postgres_db
+    restart: always  # Restart on failure
+    environment:
+      POSTGRES_USER: myuser           # Set database username
+      POSTGRES_PASSWORD: mypassword   # Set database password
+      POSTGRES_DB: mydatabase         # Set database name
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/Problem1
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydatabase"]
+      interval: 10s
+      retries: 5
+
+volumes:
+  pg_data:

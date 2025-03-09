@@ -1,0 +1,6 @@
+sqlalchemy==2.0.38
+sqlalchemy-utils==0.41.2
+psycopg2-binary==2.9.10
+requests==2.31.0
+beautifulsoup4==4.13.3
+feedparser==6.0.11

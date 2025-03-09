@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    environment:
+      - PG_HOST=postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: problem1-postgres
+    environment:
+      POSTGRES_USER: aayus
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: aayus
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 

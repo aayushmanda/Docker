@@ -1,0 +1,16 @@
+# Use the official PostgreSQL image
+FROM postgres:15-alpine
+
+
+# Copy initialization scripts
+COPY init.sh /init.sh
+COPY init.sql /init.sql
+
+# Grant execution permissions
+RUN chmod +x /init.sh
+
+# Expose PostgreSQL port
+EXPOSE 5432
+
+# Setting init.sh as the entrypoint, so it runs on every restart
+ENTRYPOINT ["/init.sh"]
